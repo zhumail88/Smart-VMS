@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 200 98% 39%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 200 98% 45%;
+
+    --secondary: 173 80% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 173 80% 50%;
+
+    --muted: 210 40% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 200 98% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 214 32% 88%;
+    --input: 214 32% 91%;
+    --ring: 200 98% 39%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(200 98% 39%) 0%, hsl(173 80% 40%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 40% 94%) 100%);
+    
+    --shadow-soft: 0 2px 8px hsla(215 25% 15% / 0.08);
+    --shadow-medium: 0 4px 16px hsla(215 25% 15% / 0.12);
+    --shadow-large: 0 8px 32px hsla(215 25% 15% / 0.16);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 28% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 28% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 28% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 98% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 200 98% 52%;
+
+    --secondary: 173 80% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 173 80% 55%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 200 98% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 215 25% 25%;
+    --input: 215 25% 20%;
+    --ring: 200 98% 45%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(200 98% 45%) 0%, hsl(173 80% 45%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(215 28% 15%) 0%, hsl(215 28% 12%) 100%);
+    
+    --shadow-soft: 0 2px 8px hsla(0 0% 0% / 0.2);
+    --shadow-medium: 0 4px 16px hsla(0 0% 0% / 0.3);
+    --shadow-large: 0 8px 32px hsla(0 0% 0% / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @media print {
+    body {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
